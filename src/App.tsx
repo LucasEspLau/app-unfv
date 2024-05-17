@@ -10,7 +10,7 @@ function App() {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "api-key": "763e40e0-407e-41c3-b1d4-7cfe70a85b03"
+            "API-Key": "763e40e0-407e-41c3-b1d4-7cfe70a85b03"
           }
         });
         if (!response.ok) {
