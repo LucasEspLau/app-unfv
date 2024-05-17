@@ -9,6 +9,7 @@ function App() {
         const response = await fetch("https://cris.unfv.edu.pe/ws/api/research-outputs?size=10", {
           method: "GET",
           headers: {
+            "Content-Type": "application/json",
             "api-key": "763e40e0-407e-41c3-b1d4-7cfe70a85b03"
           }
         });
