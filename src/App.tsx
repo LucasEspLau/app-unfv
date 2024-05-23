@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [data, setData] = useState(null);
+  const [researchs, setResearchs] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +16,9 @@ function App() {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        setData(result);
+        console.log("Result:", result.items);
+        setResearchs(result.items);
+  
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -27,11 +29,12 @@ function App() {
 
   return (
     <div>
-      {data ? (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      ) : (
-        <p>Loading...</p>
-      )}
+      {researchs.length>0 && researchs.map((research: any) => (
+        <div key={research.pureId}>
+          <h3>{research.title.value}</h3>
+          <a href={research.links[0].url}>Link del documento</a>
+        </div>
+      ))}
     </div>
   );
 }
