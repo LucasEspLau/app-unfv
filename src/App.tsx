@@ -6,10 +6,10 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://cris.unfv.edu.pe/ws/api/research-outputs?size=10", {
+        const response = await fetch("http://localhost:3000/api/research", {
           method: "GET",
           headers: {
-            "API-Key": "763e40e0-407e-41c3-b1d4-7cfe70a85b03"
+            'Content-Type': 'application/json',
           }
         });
         if (!response.ok) {
